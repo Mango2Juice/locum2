@@ -107,8 +107,10 @@ describe('DassScorePage', () => {
     expect(await screen.findByText('Results')).toBeInTheDocument()
 
     // Change a single question to 3; this should hide results (showResult false)
-    const firstQuestionGroup = screen.getAllByRole('radiogroup')[0]
-    const radioThree = within(firstQuestionGroup).getByLabelText('Applied to me very much')
+    const groups = screen.getAllByRole('radiogroup')
+    const firstQuestionGroup = groups[0]
+    expect(firstQuestionGroup).toBeDefined()
+    const radioThree = within(firstQuestionGroup!).getByLabelText('Applied to me very much')
     await act(async () => {
       await user.click(radioThree)
     })
@@ -149,7 +151,8 @@ describe('DassScorePage', () => {
     // Set Depression questions to 2
     for (const id of depressionIds) {
       const group = groups[idToIndex(id)]
-      const radio = within(group).getByLabelText('Applied to me a considerable degree')
+      expect(group).toBeDefined()
+      const radio = within(group!).getByLabelText('Applied to me a considerable degree')
       // eslint-disable-next-line no-await-in-loop
       await act(async () => {
         await user.click(radio)
@@ -159,7 +162,8 @@ describe('DassScorePage', () => {
     // Set Anxiety questions to 1
     for (const id of anxietyIds) {
       const group = groups[idToIndex(id)]
-      const radio = within(group).getByLabelText('Applied to me to some degree')
+      expect(group).toBeDefined()
+      const radio = within(group!).getByLabelText('Applied to me to some degree')
       // eslint-disable-next-line no-await-in-loop
       await act(async () => {
         await user.click(radio)
@@ -169,7 +173,8 @@ describe('DassScorePage', () => {
     // Stress remain 0
     for (const id of stressIds) {
       const group = groups[idToIndex(id)]
-      const radio = within(group).getByLabelText('Applied to me to some degree')
+      expect(group).toBeDefined()
+      const radio = within(group!).getByLabelText('Applied to me to some degree')
       // eslint-disable-next-line no-await-in-loop
       await act(async () => {
         await user.click(radio)
@@ -185,15 +190,21 @@ describe('DassScorePage', () => {
     expect(alerts).toHaveLength(3)
 
     // Depression: 28 => Extremely Severe (red-700 label)
-    const depSeverity = within(alerts[0]).getByText('Extremely Severe')
+    const depAlert = alerts[0]
+    expect(depAlert).toBeDefined()
+    const depSeverity = within(depAlert!).getByText('Extremely Severe')
     expect(depSeverity.className).toMatch(/text-red-700/)
 
     // Anxiety: 14 => Moderate (orange label)
-    const anxSeverity = within(alerts[1]).getByText('Moderate')
+    const anxAlert = alerts[1]
+    expect(anxAlert).toBeDefined()
+    const anxSeverity = within(anxAlert!).getByText('Moderate')
     expect(anxSeverity.className).toMatch(/text-orange-500/)
 
     // Stress: 0 => Normal (green label)
-    const stressSeverity = within(alerts[2]).getByText('Normal')
+    const stressAlert = alerts[2]
+    expect(stressAlert).toBeDefined()
+    const stressSeverity = within(stressAlert!).getByText('Normal')
     expect(stressSeverity.className).toMatch(/text-green-600/)
   }, 15000)
 })
