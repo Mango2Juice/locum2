@@ -11,11 +11,10 @@
   env = {};
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
-    extensions = [
-      "bradlc.vscode-tailwindcss"
-      "biomejs.biome"
-      "jumail.headwind"
-      "angular.ng-template"
+     extensions = [
+    #  "bradlc.vscode-tailwindcss"
+    #  "biomejs.biome"
+    #  "jumail.headwind"
     ];
     workspace = {
       onCreate = {

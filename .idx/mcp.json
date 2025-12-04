@@ -1,5 +1,5 @@
 {
-  "servers": {
+  "mcpServers": {
     "shadcn": {
       "command": "npx",
       "args": [
@@ -7,9 +7,15 @@
         "mcp"
       ]
     },
-    "trunk": {
-			"url": "https://mcp.trunk.io/mcp",
-			"type": "http"
-		}
+    "deepwiki": {
+      "url": "https://mcp.deepwiki.com/sse",
+      "type": "http",
+      "disabled": false
+    },
+    "aws-knowledge-mcp-server": {
+      "url": "https://knowledge-mcp.global.api.aws",
+      "type": "http",
+      "disabled": false
+    }
   }
 }
