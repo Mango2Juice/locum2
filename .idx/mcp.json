@@ -16,6 +16,45 @@
       "url": "https://knowledge-mcp.global.api.aws",
       "type": "http",
       "disabled": false
+    },
+    "next-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "next-devtools-mcp@latest"
+      ]
     }
+  },
+  "enabledTools": {
+    "shadcn": [
+      "get_project_registries",
+      "list_items_in_registries",
+      "search_items_in_registries",
+      "view_items_in_registries",
+      "get_item_examples_from_registries",
+      "get_add_command_for_items",
+      "get_audit_checklist"
+    ],
+    "deepwiki": [
+      "read_wiki_structure",
+      "read_wiki_contents",
+      "ask_question"
+    ],
+    "aws-knowledge-mcp-server": [
+      "aws___get_regional_availability",
+      "aws___list_regions",
+      "aws___read_documentation",
+      "aws___recommend",
+      "aws___search_documentation"
+    ],
+    "next-devtools": [
+      "browser_eval",
+      "enable_cache_components",
+      "nextjs_docs",
+      "nextjs_index",
+      "nextjs_call",
+      "upgrade_nextjs_16",
+      "init"
+    ]
   }
 }
