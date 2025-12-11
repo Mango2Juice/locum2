@@ -32,6 +32,7 @@ const amoxicillin: QuickReferenceMedication = {
   },
   complaintCategories: ['antibiotics'],
   enabled: true,
+  mainDatabaseId: 'amoxicillin',
 }
 
 export default amoxicillin
